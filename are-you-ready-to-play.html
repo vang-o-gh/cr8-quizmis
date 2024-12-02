@@ -5,24 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizmis</title>
     <link rel="stylesheet" href="quizmis.css">
+    <!-- Correct audio embedding -->
+    <audio id="background-audio" src="soundfx/are-you-ready-bg-sound-fx.mp3" autoplay loop></audio>
   </head>
   <body style="background-image: url(assets/background-2.jpg);">
-    <div style="justify-content: center; align-items: center; display: block; margin-bottom: 280px;">
-      <h1 style="font-size: 95px; margin: 0; color: #BDF3FF;">
-        Are You Ready <br> To Play?
-      </h1>
-      <div style="justify-content: center; align-items: center; display: flex; margin-top: 15px;">
-        <div style="height: 50px;"></div>
-        <a href="question-01.html" style="position: absolute; text-decoration: none;">
-          <div class="button-yes">
-            YES
-          </div>
-        </a>    
-      </div> 
+
+    <!-- Loading Video -->
+    <div class="loader" style="background-color: #330084; width: 100%">
+      <video id="loading-video" width="100%" height="100%" autoplay muted>
+        <source src="assets/loading.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-    <iframe src="bg-music.html" style="display: none;"></iframe>
+
+    <!-- Button to show after loading -->
+    <div class="button-container" style="display: none;">
+      <div style="justify-content: center; align-items: center; display: block; margin-bottom: 280px;">
+        <h1 style="font-size: 95px; margin: 0; color: #BDF3FF;">
+          Are You Ready <br> To Play?
+        </h1>
+        <div style="justify-content: center; align-items: center; display: flex; margin-top: 15px;">
+          <div style="height: 50px;"></div>
+          <a href="question-01.html" style="position: absolute; text-decoration: none;">
+            <div class="button-yes">
+              YES
+            </div>
+          </a>    
+        </div> 
+      </div>
+    </div>
+
+    <!-- Sound effects -->
     <audio id="hover-sound" src="soundfx/hover-sound-fx.wav" preload="auto"></audio>
     <audio id="click-sound" src="soundfx/click-sound-fx.wav" preload="auto"></audio>
-    <script src="main.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+      // When the window is loaded
+      window.onload = function() {
+        var video = document.getElementById("loading-video");
+
+        // Once the video ends, hide the loader and show the button
+        video.onended = function() {
+          document.querySelector('.loader').style.display = 'none'; // Hide the loading video
+          document.querySelector('.button-container').style.display = 'block'; // Show the button
+        };
+      };
+    </script>
   </body>
 </html>

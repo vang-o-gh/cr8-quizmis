@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const hoverSound = document.getElementById("hover-sound");
   const clickSound = document.getElementById("click-sound");
+  const gameCompleteBgMusic = document.getElementById("game-complete-bg-music");
 
   // Ensure audio context is active for sound playback in modern browsers
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -27,4 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
       clickSound.play().catch((err) => console.log("Click sound blocked:", err));
     });
   });
+
+  // Play the game complete background music
+  gameCompleteBgMusic.play().catch((err) => {
+    console.error("Error playing background music:", err);
+  });
+  
 });
+
