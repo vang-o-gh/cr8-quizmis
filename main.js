@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const hoverSound = document.getElementById("hover-sound");
   const clickSound = document.getElementById("click-sound");
-  const backgroundMusic = document.getElementById("background-music");
 
   // Ensure audio context is active for sound playback in modern browsers
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -27,29 +26,5 @@ document.addEventListener("DOMContentLoaded", () => {
       clickSound.currentTime = 0; // Reset the sound
       clickSound.play().catch((err) => console.log("Click sound blocked:", err));
     });
-  });
-
-  // If music is not playing, play it and save the state in localStorage
-  if (!localStorage.getItem("musicPlaying")) {
-    localStorage.setItem("musicPlaying", "true");
-    backgroundMusic.play().catch((err) => console.log("Background music play error:", err));
-  }
-
-  // If music is playing, resume from where it left off
-  else {
-    // Resume the music from the saved time if it was paused
-    const currentTime = parseFloat(sessionStorage.getItem("musicCurrentTime") || "0");
-    backgroundMusic.currentTime = currentTime;
-    backgroundMusic.play().catch((err) => console.log("Background music play error:", err));
-  }
-
-  // Store the current time of the music when it's paused or ends
-  backgroundMusic.addEventListener("pause", () => {
-    sessionStorage.setItem("musicCurrentTime", backgroundMusic.currentTime);
-  });
-
-  backgroundMusic.addEventListener("ended", () => {
-    localStorage.removeItem("musicPlaying");
-    sessionStorage.removeItem("musicCurrentTime");
   });
 });
