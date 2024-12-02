@@ -39,7 +39,6 @@ h2 {
   background-image: url("assets/button-yes.png");
   background-size: 100% 100%;
   background-position: center;
-  transition: transform 0.5s ease;
 }
 
 .button-1{
@@ -52,7 +51,6 @@ h2 {
   background-image: url("assets/button-1.png");
   background-size: 100% 100%;
   background-position: center;
-  transition: transform 0.5s ease;
 }
 
 .button-2{
@@ -65,14 +63,12 @@ h2 {
   background-image: url("assets/button-2.png");
   background-size: 100% 100%;
   background-position: center;
-  transition: transform 0.5s ease;
 }
 
 .button-yes:hover,
 .button-1:hover,
 .button-2:hover{
   transform: scale(1.1);
-  transition: transform 0.5s ease;
 }
 
 
