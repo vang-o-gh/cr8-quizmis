@@ -8,10 +8,10 @@
     <!-- Correct audio embedding -->
     <audio id="background-audio" src="soundfx/are-you-ready-bg-sound-fx.mp3" autoplay loop></audio>
   </head>
-  <body style="background-image: url(assets/background-2.webp);">
+  <body style="background-image: url(assets/background-2.gif); background-color: #281850;">
 
     <!-- Loading Video -->
-    <div class="loader" style="background-color: #330084; width: 100%">
+    <div class="loader" style="background-color: #281850; width: 100%">
       <video id="loading-video" width="100%" height="100%" autoplay muted>
         <source src="assets/loading.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -21,13 +21,13 @@
     <!-- Button to show after loading -->
     <div class="button-container" style="display: none;">
       <div style="justify-content: center; align-items: center; display: block; margin-bottom: 280px;">
-        <h1 style="font-size: 95px; margin: 0; color: #BDF3FF;">
+        <h1 style="font-size: 95px; margin: 0; color:#33008400;">
           Are You Ready <br> To Play?
         </h1>
         <div style="justify-content: center; align-items: center; display: flex; margin-top: 15px;">
           <div style="height: 50px;"></div>
           <a href="question-01.html" style="position: absolute; text-decoration: none;">
-            <div class="button-yes">
+            <div class="button-yes" style="margin-top: 100px;">
               YES
             </div>
           </a>    
@@ -44,13 +44,25 @@
       // When the window is loaded
       window.onload = function() {
         var video = document.getElementById("loading-video");
-
-        // Once the video ends, hide the loader and show the button
+        var maxDuration = 5; // Set maximum duration in seconds
+    
+        // Automatically stop the video after a set duration
+        video.addEventListener('timeupdate', function() {
+          if (video.currentTime > maxDuration) {
+            video.pause(); // Pause the video after the limit
+            video.currentTime = 0; // Reset video to the start (optional)
+            document.querySelector('.loader').style.display = 'none'; // Hide the loading video
+            document.querySelector('.button-container').style.display = 'block'; // Show the button
+          }
+        });
+    
+        // Ensure the loader hides naturally when the video ends
         video.onended = function() {
           document.querySelector('.loader').style.display = 'none'; // Hide the loading video
           document.querySelector('.button-container').style.display = 'block'; // Show the button
         };
       };
-    </script>
+
+    </script>    
   </body>
 </html>
