@@ -33,10 +33,10 @@ function handleClick(event) {
       // Correct answer, increment the score
       score++;
       localStorage.setItem('score', score); // Save the updated score
-      alert("Correct!");
+      // alert("Correct!");
     } else {
       // Incorrect answer, no score change
-      alert("Wrong Answer!");
+      // alert("Wrong Answer!");
     }
   
     // Redirect to the next question

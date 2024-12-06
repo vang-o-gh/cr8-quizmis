@@ -33,13 +33,13 @@ function handleClick(event) {
     // Check if the selected answer matches the correct answer
     if (selectedAnswer === correctAnswer) {
       // Correct answer, increment the score
-      alert("Correct!")
+      // alert("Correct!")
       score++;
       localStorage.setItem('score', score); // Save the updated score
     
     } else {
       // Incorrect answer, no score change
-      alert("Wrong Answer!");
+      // alert("Wrong Answer!");
     }
     // Redirect to the next question
     window.location.href = 'question-02.html';
