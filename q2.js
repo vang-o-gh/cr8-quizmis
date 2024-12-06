@@ -20,7 +20,7 @@ function handleClick(event) {
     playSound(clickSound);
   
     // Define the correct answer
-    const correctAnswer = "Hello Love, Again";
+    const correctAnswer = "Hello, Love, Again";
   
     // Get the selected answer's text
     const selectedAnswer = event.target.textContent.trim();
