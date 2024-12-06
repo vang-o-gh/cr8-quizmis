@@ -15,17 +15,33 @@
         00/20
       </h1>
       <div style="justify-content: center; align-items: center; display: flex; margin-top: 15px;">
-        <img src="assets/button-yes.png" style="width: 300px;">
+        <img src="assets/button-show-answers.png" style="width: 300px;">
         <a href="index.html" style="position: absolute; text-decoration: none;">
           <div class="button-yes">
             Play Again
           </div>
         </a>
       </div> 
+      <div style="justify-content: center; align-items: center; display: flex; margin-top: 15px;">
+        <img src="assets/button-yes.png" style="width: 300px;">
+        <div style="position: absolute; text-decoration: none;">
+          <div class="button-answer" style="font-size: x-large;" onclick="openShowAnswersPopUp()">
+            Show Answers
+          </div>
+        </div>
+      </div> 
     </div>
+
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+    <div class="show-answers-pop-up" id="show-answers-pop-up">
+   
+    </div>
+
     <audio id="game-complete-bg-music" src="soundfx/game-complete-sound-fx.mp3" preload="auto" loop></audio>
     <audio id="hover-sound" src="soundfx/hover-sound-fx.wav" preload="auto"></audio>
     <audio id="click-sound" src="soundfx/click-sound-fx.wav" preload="auto"></audio>
     <script src="result.js"></script>
+
   </body>
 </html>
